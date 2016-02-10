@@ -7,7 +7,7 @@ galaxy_info:
   description: "The easiest cloud log management system you will ever use."
   license: MIT
   min_ansible_version: 1.2
-  version: 1.0.0
+  version: 1.0.1
   platforms:
     - name: Ubuntu
       versions:
