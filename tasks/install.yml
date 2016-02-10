@@ -1,21 +1,22 @@
 ---
-- name: Install Packages | apt
+- name: Configure | PPA repo
+  shell: "echo 'deb http://repo.logdna.com stable main' | sudo tee /etc/apt/sources.list.d/logdna.list"
+
+- name: Install Package | apt | logdna-agent
   apt:
     state: latest
     force: yes
-    name: "{{ item }}"
+    name: logdna-agent
     update_cache: yes
-  with_items:
-    - logdna-agent
 
-- name: Install Packages | bundler
-  shell: "sudo logdna-agent -k {{ logdna_security_key }}"
+- name: Configure | logdna secret key
+  shell: "sudo logdna-agent -k {{ logdna_secret_key }}"
 
-- name: Configure Directory Location
+- name: Configure | directory log location
   shell: "sudo logdna-agent -d {{ logdna_logging_directory }}"
 
-- name: Configure Linux Service
+- name: Configure | service | logdna-agent
   shell: "sudo update-rc.d logdna-agent defaults"
 
-- name: Start Agent
+- name: Start | service | logdna-agent
   shell: "sudo /etc/init.d/logdna-agent start"

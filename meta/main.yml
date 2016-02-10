@@ -1,8 +1,4 @@
 ---
-dependencies:
-  - role: telusdigital.apt-repository
-    repository_url: "deb http://repo.logdna.com stable main"
-
 galaxy_info:
   author: "Ben Visser"
   categories:
