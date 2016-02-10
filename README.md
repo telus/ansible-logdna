@@ -19,7 +19,7 @@ Example Playbook
     - hosts: servers
       roles:
          - role: telusdigital.logdna
-            logdna_logging_directory: /data/log
+           logdna_logging_directory: /data/log
 
 License
 -------
