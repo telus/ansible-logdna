@@ -1,0 +1,19 @@
+---
+dependencies:
+  - role: telusdigital.apt-repository
+    repository_url: "deb http://repo.logdna.com {{ ansible_distribution_release }} main"
+
+galaxy_info:
+  author: "Ben Visser"
+  categories:
+    - logging
+  company: "TELUS digital"
+  description: "The easiest cloud log management system you will ever use."
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+        - utopic

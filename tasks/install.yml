@@ -1,0 +1,21 @@
+---
+- name: Install Packages | apt
+  apt:
+    state: latest
+    force: yes
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    - logdna-agent
+
+- name: Install Packages | bundler
+  shell: "sudo logdna-agent -k {{ logdna_security_key }}"
+
+- name: Configure Directory Location
+  shell: "sudo logdna-agent -d {{ logdna_logging_directory }}"
+
+- name: Configure Linux Service
+  shell: "sudo update-rc.d logdna-agent defaults"
+
+- name: Start Agent
+  shell: "sudo /etc/init.d/logdna-agent start"
