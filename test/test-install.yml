@@ -5,3 +5,4 @@
     - role: telusdigital.apt-repository
       repository_url: "repository_url: deb http://repo.logdna.com {{ ansible_distribution_release }} main"
     - role: ansible-logdna
+      logdna_secret_key: "{{ lookup('env','LOGDNA_SECRET_KEY') }}"
