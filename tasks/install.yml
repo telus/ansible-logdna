@@ -10,13 +10,14 @@
     update_cache: yes
 
 - name: Configure | logdna secret key
-  shell: "sudo logdna-agent -k {{ logdna_secret_key }}"
+  become: true
+  shell: "logdna-agent -k {{ logdna_secret_key }}"
 
 - name: Configure | directory log location
-  shell: "sudo logdna-agent -d {{ logdna_logging_directory }}"
+  become: true
+  shell: "logdna-agent -d {{ logdna_logging_directory }}"
 
 - name: Configure | service | logdna-agent
-  shell: "sudo update-rc.d logdna-agent defaults"
-
-- name: Start | service | logdna-agent
-  shell: "sudo /etc/init.d/logdna-agent start"
+  become: true
+  shell: "update-rc.d logdna-agent defaults"
+  notify: service | logdna-agent | started
