@@ -3,7 +3,7 @@
 [Logdna](https://logdna.com/) - The easiest cloud log management system you will ever use.
 
 [![Build Status](https://travis-ci.org/telusdigital/ansible-logdna.svg?branch=master)](https://travis-ci.org/telusdigital/ansible-logdna)
-[![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
+[![Platforms](https://img.shields.io/badge/platform-ubuntu,redhat-lightgrey.svg?style=flat)](#)
 
 Tunables
 --------
