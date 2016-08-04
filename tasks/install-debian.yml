@@ -19,5 +19,7 @@
 
 - name: Configure | service | logdna-agent
   become: true
-  shell: "update-rc.d logdna-agent defaults"
+  service:
+    name: logdna-agent
+    enabled: yes
   notify: service | logdna-agent | started

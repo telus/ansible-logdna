@@ -14,3 +14,9 @@ galaxy_info:
         - precise
         - trusty
         - utopic
+    - name: EL
+      versions:
+        - 6
+    - name: Amazon
+      versions:
+        - 2016.03
