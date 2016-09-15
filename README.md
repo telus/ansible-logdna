@@ -8,6 +8,7 @@
 Tunables
 --------
 * `logdna_logging_directory` (string) - The directory logdna should monitor for logs.
+* `logdna_logging_files` (string) - The comma-sepreated files logdna should monitor for logs.
 * `logdna_secret_key` (string) - The key associated with your logdna account.
 
 Dependencies
