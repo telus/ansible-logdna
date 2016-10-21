@@ -4,3 +4,24 @@
 
 - include: install-debian.yml
   when: ansible_os_family == 'Debian'
+
+- name: Configure | logdna secret key
+  become: true
+  shell: "logdna-agent -k {{ logdna_secret_key }}"
+
+- name: Configure | directory log location
+  become: true
+  shell: "logdna-agent -d {{ logdna_logging_directory }}"
+  when: logdna_logging_directory is defined
+
+- name: Configure | file log locations
+  become: true
+  shell: "logdna-agent -d {{ logdna_logging_files }}"
+  when: logdna_logging_files is defined
+
+- name: Configure | service | logdna-agent
+  become: true
+  service:
+    name: logdna-agent
+    enabled: yes
+  notify: service | logdna-agent | started
