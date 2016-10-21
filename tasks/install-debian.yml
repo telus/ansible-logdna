@@ -2,10 +2,19 @@
 - name: Configure | PPA repo
   shell: "echo 'deb http://repo.logdna.com stable main' | sudo tee /etc/apt/sources.list.d/logdna.list"
 
+- name: Configure | Copy PPA Key
+  copy:
+    src: logdna.gpg
+    dest: /tmp/logdna.gpg
+
+- name: Configure | Install PPA Key
+  apt_key:
+    file: /tmp/logdna.gpg
+    state: present
+
 - name: Install Package | apt | logdna-agent
   apt:
     state: latest
-    force: yes
     name: logdna-agent
     update_cache: yes
 
