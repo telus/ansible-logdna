@@ -19,6 +19,11 @@
   shell: "logdna-agent -d {{ logdna_logging_files }}"
   when: logdna_logging_files is defined
 
+- name: Configure | host tags
+  become: true
+  shell: "logdna-agent -t {{ logdna_host_tags }}"
+  when: logdna_host_tags is defined
+
 - name: Configure | service | logdna-agent
   become: true
   service:
